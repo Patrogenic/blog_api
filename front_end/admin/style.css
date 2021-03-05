@@ -1,0 +1,89 @@
+html, body{
+    margin: 0;
+    font-family: sans-serif;
+    color: rgb(214, 214, 214);
+    /* background-attachment: fixed;
+    background-image: linear-gradient(rgb(59, 52, 70), rgb(56, 138, 83)); */
+    background-color: rgb(46, 46, 46);
+    height: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+#website-title{
+    font-size: 20pt;
+    margin: 20px;
+}
+nav{
+
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+#main-content{
+    width: 900px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.blog-post-preview{
+    border: 1px solid white;
+    text-align: center;
+    margin: 20px 0;
+
+}
+.blog-post-preview-title{
+    font-size: 16pt;
+    border: none;
+    color: rgb(214, 214, 214);
+    background: none;
+    cursor: pointer;
+}
+.blog-post-preview-text{
+    font-size: 10pt;
+    max-height: 205px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 10px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    /* text-align: left; */
+}
+
+/* Styling for blog_post.html claasses */
+.blog-post{
+    border: 1px solid white;
+
+}
+.blog-post-title{
+    font-size: 16pt;
+    text-align: center;
+    margin: 20px 0;
+}
+.blog-post-text{
+    /* font-size: 12pt; */
+    /* text-align: center; */
+    margin: 0 20px;
+}
+#comment-section-header{
+    text-align: center;
+    font-size: 14pt;
+    margin: 20px 0;
+
+}
+#comments-container{
+    border: 1px solid black;
+}
+#form-container{
+    /* visibility: hidden; */
+}
+#hidden-comment-form{
+    visibility: hidden;
+    display: none;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patrick's Blog</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+<body>
+    <header>
+        <div id="website-title">Blog- Admin Site</div>
+    </header>
+    <div id="main-content">
+        <form method="POST" action="http://localhost:3000/admin/log_in" id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username-field">
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password-field">
+            <input type="submit" value="Submit" id="submit-btn">
+        </form>
+        <div id="validation-errors"></div>
+    </div>
+    
+    <footer></footer>
+    <script src="../admin/src/log_in.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+<body>
+    <header>
+        <div id="website-title"><a href="blog_posts.html">My Blog</a></div>
+    </header>
+    <div id="main-content">
+        <div id="blog-post-container"></div>
+        <div id="comment-section">
+            <div id="comment-section-header">Comments</div>
+            <div id="comments-container"></div>
+        </div>
+        <div id="form-container">
+            <form action="blog_post.html" id="comment-form">
+                Your Name:<input type="text" name="name" id="form-name"><br>
+                Comment:<textarea name="text" id="form-text"></textarea>
+                <!-- <input type="hidden" name="id" id="form-id"> -->
+                <button>Submit</button>
+            </form>
+            <form method="post" id="hidden-comment-form" type="hidden">
+                Your Name:<input type="text" name="name" id="hidden-form-name"><br>
+                Comment:<textarea name="text" id="hidden-form-text"></textarea>
+                <!-- <input type="hidden" name="id" id="hidden-form-id"> -->
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- <button id="1">Submit</button> -->
+    <!-- <a href="blog_post.html">Blog Post</a> -->
+    
+    <footer></footer>
+
+    <script src='../admin/src/blog_post.js'></script>
+</body>
+</html>

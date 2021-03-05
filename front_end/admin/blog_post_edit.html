@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+<body>
+    <header>
+        <div id="website-title"><a href="blog_posts.html">My Blog</a></div>
+    </header>
+    <div id="main-content">
+        <form id="edit-form">
+            <div id="blog-post-container"></div>
+            <div style="margin: 0 auto; width: 110px">
+                <select id="published-status">
+                    <option value="true">Published</option>
+                    <option value="false" id='not-published-option'>Not Published</option>
+                </select>
+                <input type="submit" value="Submit Edits">
+            </div>
+        </form>
+        </div>
+        <div id="comment-section">
+            <div id="comment-section-header">Comments</div>
+            <div id="comments-container"></div>
+        </div>
+    </div>
+    <!-- <button id="1">Submit</button> -->
+    <!-- <a href="blog_post.html">Blog Post</a> -->
+    
+    <footer></footer>
+
+    <script src='../admin/src/blog_post_edit.js'></script>
+</body>
+</html>
