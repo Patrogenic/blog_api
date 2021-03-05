@@ -2,7 +2,7 @@
 
 function getBlogPosts(){
 
-    fetch("http://localhost:3000/blog_posts")
+    fetch("http://localhost:3000/api/blog_posts")
         .then(function(response){
             return response.json();
         }).then(function(json){

@@ -5,7 +5,7 @@ function getBlogPost(){
     const localstorage_user = JSON.parse(localStorage.getItem('user'));
     const inMemoryToken = localstorage_user.token;
 
-    fetch("http://localhost:3000/admin/blog_post/" + id, {
+    fetch("http://localhost:3000/api/admin/blog_post/" + id, {
         method: 'get',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -87,7 +87,7 @@ function editBlogPost(e){
     const localstorage_user = JSON.parse(localStorage.getItem('user'));
     const inMemoryToken = localstorage_user.token;
 
-    fetch("http://localhost:3000/admin/blog_post/" + id, {
+    fetch("http://localhost:3000/api/admin/blog_post/" + id, {
         method: 'put',
         headers: {
             'Accept': 'application/json, text/plain, */*',

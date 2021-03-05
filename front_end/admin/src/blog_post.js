@@ -12,7 +12,7 @@ function submitCommentData(){
         // document.getElementById('hidden-form-id').value = id;
 
         let formEl = document.getElementById('hidden-comment-form');
-        formEl.action = "http://localhost:3000/blog_post/" + id + "/add_comment";
+        formEl.action = "http://localhost:3000/api/blog_post/" + id + "/add_comment";
         formEl.submit();
     }
     getBlogPost();
@@ -34,7 +34,7 @@ function getBlogPost(){
     const localstorage_user = JSON.parse(localStorage.getItem('user'));
     const inMemoryToken = localstorage_user.token;
 
-    fetch("http://localhost:3000/admin/blog_post/" + id, {
+    fetch("http://localhost:3000/api/admin/blog_post/" + id, {
         method: 'get',
         headers: {
             'Accept': 'application/json, text/plain, */*',

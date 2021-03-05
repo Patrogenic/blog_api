@@ -15,49 +15,49 @@ router.put('/', blogPostController.index_put);
 router.delete('/', blogPostController.index_delete);
 
 //get login page
-router.get('/admin/log_in', blogPostController.login_get);
+router.get('/api/admin/log_in', blogPostController.login_get);
 //authenticate user information (only user is admin, which is me)
-router.post('/admin/log_in', blogPostController.login_post);
+router.post('/api/admin/log_in', blogPostController.login_post);
 
 
 //this will take you to a page to create a comment for a specific post
-router.get('/blog_post/:id/add_comment', commentController.comments_get);
+router.get('/api/blog_post/:id/add_comment', commentController.comments_get);
 //this will submit the comment and add it to the database
-router.post('/blog_post/:id/add_comment', commentController.comments_post);
+router.post('/api/blog_post/:id/add_comment', commentController.comments_post);
 
 //this page will differ from the blog post page in that on this single page a PUT and a DELETE request will be possible
-router.get('/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_get);
+router.get('/api/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_get);
 //update a specific comment (probably have to get a specific comment) (include links for admin on each comment)
-router.put('/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_put);
+router.put('/api/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_put);
 //delete a specific comment
 router.delete('/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_delete);
 
 //show all blog posts
-router.get('/blog_posts', blogPostController.blog_posts_get);
+router.get('/api/api/blog_posts', blogPostController.blog_posts_get);
 
 
-router.get('/admin/blog_posts', blogPostController.verify_token, blogPostController.blog_posts_admin_get);
+router.get('/api/admin/blog_posts', blogPostController.verify_token, blogPostController.blog_posts_admin_get);
 
 //create blog post
-router.get('/admin/blog_post/create', blogPostController.verify_token, blogPostController.blog_posts_create_get);
+router.get('/api/admin/blog_post/create', blogPostController.verify_token, blogPostController.blog_posts_create_get);
 //submit blog post to database
-router.post('/admin/blog_post/create', blogPostController.verify_token, blogPostController.blog_posts_create_post);
+router.post('/api/admin/blog_post/create', blogPostController.verify_token, blogPostController.blog_posts_create_post);
 
 //get one blog post-- I will have to check to see if the post is published, if it is not, I will then have to check for authentication
-router.get('/blog_post/:id', blogPostController.blog_post_get);
+router.get('/api/blog_post/:id', blogPostController.blog_post_get);
 
 //this is for the admin to make modifications to the data on the site
-router.get('/admin/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_admin_get);
+router.get('/api/admin/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_admin_get);
 
 //get the update blog post page
 // router.get('/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_update_get)
 //update a specific blog post
-router.put('/admin/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_update_put);
+router.put('/api/admin/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_update_put);
 
 //get the delete blog post page
 // router.get('/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_delete_get);
 //delete a specific blog post
-router.delete('/admin/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_delete_delete);
+router.delete('/api/admin/blog_post/:id', blogPostController.verify_token, blogPostController.blog_post_delete_delete);
 
 
 // router.post('/admin/make_account', blogPostController.make_account);

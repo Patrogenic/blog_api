@@ -6,7 +6,7 @@ function submitBlogPost(e){
     const localstorage_user = JSON.parse(localStorage.getItem('user'));
     const inMemoryToken = localstorage_user.token;
 
-    fetch("http://localhost:3000/admin/blog_post/create", {
+    fetch("http://localhost:3000/api/admin/blog_post/create", {
         method: 'post',
         headers: {
             'Accept': 'application/json, text/plain, */*',
