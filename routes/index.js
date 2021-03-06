@@ -33,7 +33,7 @@ router.put('/api/admin/blog_post/comment/:id', blogPostController.verify_token, 
 router.delete('/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_delete);
 
 //show all blog posts
-router.get('/api/api/blog_posts', blogPostController.blog_posts_get);
+router.get('/api/blog_posts', blogPostController.blog_posts_get);
 
 
 router.get('/api/admin/blog_posts', blogPostController.verify_token, blogPostController.blog_posts_admin_get);
