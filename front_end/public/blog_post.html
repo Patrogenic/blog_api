@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <div id="website-title">My Blog</div>
+        <div id="website-title"><a href="index.html">My Blog</a></div>
     </header>
     <div id="main-content">
         <div id="blog-post-container"></div>
@@ -19,16 +19,9 @@
         </div>
         <div id="form-container">
             <form action="blog_post.html" id="comment-form">
-                Your Name:<input type="text" name="name" id="form-name"><br>
-                Comment:<textarea name="text" id="form-text"></textarea>
-                <!-- <input type="hidden" name="id" id="form-id"> -->
-                <button>Submit</button>
-            </form>
-            <form method="post" id="hidden-comment-form" type="hidden">
-                Your Name:<input type="text" name="name" id="hidden-form-name"><br>
-                Comment:<textarea name="text" id="hidden-form-text"></textarea>
-                <!-- <input type="hidden" name="id" id="hidden-form-id"> -->
-                <button>Submit</button>
+                Your Name:<input type="text" name="name" id="name-field"><br>
+                Comment:<textarea name="text" id="text-field"></textarea>
+                <input type="submit" value="Submit Comment">
             </form>
         </div>
     </div>

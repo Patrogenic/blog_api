@@ -1,30 +1,38 @@
 //call api to get a blog post by id
-document.onload = submitCommentData();
 
-function submitCommentData(){
-    let name = getParam("name");
-    let text = getParam("text");
+function submitComment(e){
+    let name = document.getElementById('name-field').value;
+    let text = document.getElementById('text-field').value;
     let id = getParam("id");
+    e.preventDefault();
+
     console.log(id);
-    if(name != '' && text != ''){
-        document.getElementById('hidden-form-name').value = name;
-        document.getElementById('hidden-form-text').value = text;
-        // document.getElementById('hidden-form-id').value = id;
 
-        let formEl = document.getElementById('hidden-comment-form');
-        formEl.action = "http://blog.patrickcs.com/api/blog_post/" + id + "/add_comment";
-        formEl.submit();
-    }
-    getBlogPost();
-}
-//we have this above solution which is good for when I want to go to another page
-//however in this case we just want to stay on the same page
-//and so I believe a lot of this is unnecessary
-//alternatively I could submit the form on the page, save to the database, 
-//and append the data to the comment section with no page refresh
-//the issue with this is that there isn't as much of a confirmation of a successfully posted comment,
-//and I'm not sure how I would check for that
+    fetch("http://blog.patrickcs.com/api/blog_post/" + id + "/add_comment", {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "name": name,
+            "text": text,
+        })
+    }).then(response => {
+        console.log(response);
+        return response.json();
+    }).then(json => {
+        console.log(json);
 
+        //if there are errors, notify admin
+        if(/*json equals errors */false){
+
+        }else{
+            window.location.href = 'blog_post.html?id=' + json.blog_post;
+        }
+
+    })
+}  
 
 //might need error checking
 function getBlogPost(){
@@ -106,3 +114,7 @@ function getParam(name)
   }
   return unescape(result);
 }
+
+getBlogPost();
+
+document.getElementById('comment-form').addEventListener('submit', submitComment);

@@ -1,30 +1,40 @@
 //call api to get a blog post by id
-document.onload = submitCommentData();
 
-function submitCommentData(){
-    let name = getParam("name");
-    let text = getParam("text");
+function submitComment(e){
+    let name = document.getElementById('name-field').value;
+    let text = document.getElementById('text-field').value;
     let id = getParam("id");
-    console.log(id);
-    if(name != '' && text != ''){
-        document.getElementById('hidden-form-name').value = name;
-        document.getElementById('hidden-form-text').value = text;
-        // document.getElementById('hidden-form-id').value = id;
+    e.preventDefault();
 
-        let formEl = document.getElementById('hidden-comment-form');
-        formEl.action = "http://blog.patrickcs.com/api/blog_post/" + id + "/add_comment";
-        formEl.submit();
-    }
-    getBlogPost();
-}
-//we have this above solution which is good for when I want to go to another page
-//however in this case we just want to stay on the same page
-//and so I believe a lot of this is unnecessary
-//alternatively I could submit the form on the page, save to the database, 
-//and append the data to the comment section with no page refresh
-//the issue with this is that there isn't as much of a confirmation of a successfully posted comment,
-//and I'm not sure how I would check for that
+    const localstorage_user = JSON.parse(localStorage.getItem('user'));
+    const inMemoryToken = localstorage_user.token;
 
+    fetch("http://blog.patrickcs.com/api/blog_post/" + id + "/add_comment", {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + inMemoryToken,
+        },
+        body: JSON.stringify({
+            "name": name,
+            "text": text,
+        })
+    }).then(response => {
+        console.log(response);
+        return response.json();
+    }).then(json => {
+        console.log(json);
+
+        //if there are errors, notify admin
+        if(/*json equals errors */false){
+
+        }else{
+            window.location.href = 'blog_post.html?id=' + json.blog_post;
+        }
+
+    })
+}  
 
 //might need error checking
 function getBlogPost(){
@@ -34,15 +44,14 @@ function getBlogPost(){
     const localstorage_user = JSON.parse(localStorage.getItem('user'));
     const inMemoryToken = localstorage_user.token;
 
-    fetch("http://blog.patrickcs.com/api/admin/blog_post/" + id, {
+    fetch("http://localhost:3000/api/admin/blog_post/" + id, {
         method: 'get',
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + inMemoryToken,
         }
-    })
-    .then(function(response){
+    }).then(function(response){
         if(response.status != 200){
             console.log(response.status);
             return;
@@ -87,8 +96,6 @@ function getBlogPost(){
         inputEl.id = "form-id";
         inputEl.value = json.blogPost._id;
         
-        // formEl.action = "http://blog.patrickcs.com/blog_post/" + json.blogPost._id + "/add_comment";
-        // formEl.action = "blog_post.html"
         formEl.appendChild(inputEl);
 
     })
@@ -117,3 +124,7 @@ function getParam(name)
   }
   return unescape(result);
 }
+
+getBlogPost();
+
+document.getElementById('comment-form').addEventListener('submit', submitComment);

@@ -30,7 +30,7 @@ router.get('/api/admin/blog_post/comment/:id', blogPostController.verify_token, 
 //update a specific comment (probably have to get a specific comment) (include links for admin on each comment)
 router.put('/api/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_put);
 //delete a specific comment
-router.delete('/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_delete);
+router.delete('/api/admin/blog_post/comment/:id', blogPostController.verify_token, commentController.comment_delete);
 
 //show all blog posts
 router.get('/api/blog_posts', blogPostController.blog_posts_get);

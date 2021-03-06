@@ -39,7 +39,7 @@ exports.login_post = [
             let match = await bcrypt.compare(req.body.password, user.password);
             
             if(match){
-                const token = jwt.sign({user}, process.env.TOKEN_SECRET, {expiresIn: '1d'});
+                const token = jwt.sign({user}, process.env.TOKEN_SECRET, {expiresIn: '1h'});
                 res.json({token});
             } else {
                 res.json({ message: "Invalid Credentials" });

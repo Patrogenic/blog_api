@@ -32,7 +32,8 @@ exports.comments_post = [
         }else{
             comment.save(function(err){
                 if(err){return next(err);}
-                res.status(204).send(); //no content response
+                // res.status(204).send(); //no content response
+                res.json(comment);
             })
         }
     }
