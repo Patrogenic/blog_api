@@ -5,7 +5,7 @@ function getComment(){
     const localstorage_user = JSON.parse(localStorage.getItem('user'));
     const inMemoryToken = localstorage_user.token;
 
-    fetch("http://localhost:3000/api/admin/blog_post/comment/" + id, {
+    fetch("http://blog.patrickcs.com/api/admin/blog_post/comment/" + id, {
         method: 'get',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -34,7 +34,7 @@ function getComment(){
         commentEl.appendChild(commentNameEl);
         commentEl.appendChild(commentTextEl);
         
-        // formEl.action = "http://localhost:3000/blog_post/" + json.blogPost._id + "/add_comment";
+        // formEl.action = "http://blog.patrickcs.com/blog_post/" + json.blogPost._id + "/add_comment";
         // formEl.action = "blog_post.html"
 
     })
@@ -48,7 +48,7 @@ function deleteComment(e){
     const localstorage_user = JSON.parse(localStorage.getItem('user'));
     const inMemoryToken = localstorage_user.token;
 
-    fetch("http://localhost:3000/api/admin/blog_post/comment/" + id, {
+    fetch("http://blog.patrickcs.com/api/admin/blog_post/comment/" + id, {
         method: 'delete',
         headers: {
             'Accept': 'application/json, text/plain, */*',

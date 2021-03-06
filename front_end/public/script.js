@@ -2,7 +2,7 @@
 
 function getBlogPosts(){
 
-    fetch("http://localhost:3000/api/blog_posts")
+    fetch("http://blog.patrickcs.com/api/blog_posts")
         .then(function(response){
             return response.json();
         }).then(function(json){

@@ -12,7 +12,7 @@ function submitCommentData(){
         // document.getElementById('hidden-form-id').value = id;
 
         let formEl = document.getElementById('hidden-comment-form');
-        formEl.action = "http://localhost:3000/api/blog_post/" + id + "/add_comment";
+        formEl.action = "http://blog.patrickcs.com/api/blog_post/" + id + "/add_comment";
         formEl.submit();
     }
     getBlogPost();
@@ -30,7 +30,7 @@ function submitCommentData(){
 function getBlogPost(){
     let id = getParam("id");
     console.log("id " + id);
-    fetch("http://localhost:3000/api/blog_post/" + id)
+    fetch("http://blog.patrickcs.com/api/blog_post/" + id)
     .then(function(response){
         if(response.status != 200){
             console.log(response.status);

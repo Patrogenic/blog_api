@@ -3,7 +3,7 @@ function submitForm(e){
     let password = document.getElementById('password-field').value;
     e.preventDefault();
 
-    fetch("http://localhost:3000/api/admin/log_in", {
+    fetch("http://blog.patrickcs.com/api/admin/log_in", {
         method: 'post',
         headers: {
             'Accept': 'application/json, text/plain, */*',
